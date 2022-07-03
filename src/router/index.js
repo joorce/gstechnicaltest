@@ -18,6 +18,14 @@ const routes = [
         /* webpackChunkName: "active" */ '../views/ActiveView.vue'
       ),
   },
+  {
+    path: '/completed',
+    name: 'completed',
+    component: () =>
+      import(
+        /* webpackChunkName: "completed" */ '../views/CompletedView.vue'
+      ),
+  },
 ]
 
 const router = new VueRouter({

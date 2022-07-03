@@ -1,17 +1,17 @@
 <template>
-  <todo-list-component :todos="todos" />
+  <todo-list-component :todos="completed" />
 </template>
 
 <script>
 import TodoListComponent from '@/components/TodoListComponent.vue'
-import { mapState /*, mapActions*/ } from 'vuex'
+import { mapGetters /*, mapActions*/ } from 'vuex'
 
 export default {
-  name: 'HomeView',
+  name: 'CompletedView',
 
   components: { TodoListComponent },
   computed: {
-    ...mapState(['todos']),
+    ...mapGetters(['completed']),
   },
 }
 </script>

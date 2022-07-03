@@ -1,3 +1,17 @@
 <template>
-  <div class="active">ACTIVE</div>
+  <todo-list-component />
 </template>
+
+<script>
+import TodoListComponent from '@/components/TodoListComponent.vue'
+import { mapGetters /*, mapActions*/ } from 'vuex'
+
+export default {
+  name: 'ActiveView',
+
+  components: { TodoListComponent },
+  computed: {
+    ...mapGetters(['active']),
+  },
+}
+</script>
