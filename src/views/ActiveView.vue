@@ -1,5 +1,5 @@
 <template>
-  <todo-list-component />
+  <todo-list-component :todos="active" />
 </template>
 
 <script>

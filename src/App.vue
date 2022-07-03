@@ -86,4 +86,129 @@ body {
   -moz-text-rendering: optimizeLegibility;
   text-rendering: optimizeLegibility;
 }
+
+.main {
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid #e6e6e6;
+}
+
+.toggle-all {
+  text-align: center;
+  border: none; /* Mobile Safari */
+  opacity: 0;
+  position: absolute;
+}
+
+.toggle-all + label {
+  width: 60px;
+  height: 34px;
+  font-size: 0;
+  position: absolute;
+  top: -52px;
+  left: -13px;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.toggle-all + label:before {
+  content: '❯';
+  font-size: 22px;
+  color: #e6e6e6;
+  padding: 10px 27px 10px 27px;
+}
+
+.toggle-all:checked + label:before {
+  color: #737373;
+}
+
+.footer {
+  color: #777;
+  padding: 10px 15px;
+  height: 20px;
+  text-align: center;
+  border-top: 1px solid #e6e6e6;
+}
+
+.footer:before {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  overflow: hidden;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6,
+    0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6,
+    0 17px 2px -6px rgba(0, 0, 0, 0.2);
+}
+
+.todo-count {
+  float: left;
+  text-align: left;
+}
+
+.todo-count strong {
+  font-weight: 300;
+}
+
+.clear-completed,
+html .clear-completed:active {
+  float: right;
+  position: relative;
+  line-height: 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.clear-completed:hover {
+  text-decoration: underline;
+}
+
+.info {
+  margin: 65px auto 0;
+  color: #bfbfbf;
+  font-size: 10px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  text-align: center;
+}
+
+.info p {
+  line-height: 1;
+}
+
+.info a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.info a:hover {
+  text-decoration: underline;
+}
+
+/*
+	Hack to remove background from Mobile Safari.
+	Can't use it globally since it destroys checkboxes in Firefox
+*/
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .toggle-all,
+  .todo-list li .toggle {
+    background: none;
+  }
+
+  .todo-list li .toggle {
+    height: 40px;
+  }
+}
+
+@media (max-width: 430px) {
+  .footer {
+    height: 50px;
+  }
+
+  .filters {
+    bottom: 10px;
+  }
+}
 </style>
