@@ -7,7 +7,12 @@
     <div class="main">
       <input id="toggle-all" class="toggle-all" type="checkbox" />
       <label for="toggle-all">Mark all as complete</label>
-      <todo-list :todos="todos" v-if="todos.length > 0" />
+      <todo-list
+        :todos="todos"
+        v-if="todos.length > 0"
+        @updateTodo="onUpdateTodo"
+        @removeTodo="onRemoveTodo"
+      />
     </div>
     <footer class="footer" v-if="todos.length > 0">
       <span class="todo-count">
@@ -35,6 +40,12 @@ export default {
   methods: {
     onAddTodo(todo) {
       this.$emit('addTodo', todo)
+    },
+    onUpdateTodo(todo) {
+      this.$emit('updateTodo', todo)
+    },
+    onRemoveTodo(todo) {
+      this.$emit('removeTodo', todo)
     },
   },
 }

@@ -8,7 +8,11 @@
         completed: todo.completed,
       }"
     >
-      <todo-item :todo="todo" />
+      <todo-item
+        :todo="todo"
+        @updateTodo="onUpdateTodo"
+        @removeTodo="onRemoveTodo"
+      />
     </li>
   </ul>
 </template>
@@ -22,6 +26,14 @@ export default {
     todos: {
       type: Array,
       default: () => [],
+    },
+  },
+  methods: {
+    onUpdateTodo(todo) {
+      this.$emit('updateTodo', todo)
+    },
+    onRemoveTodo(todo) {
+      this.$emit('removeTodo', todo)
     },
   },
 }

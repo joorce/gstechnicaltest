@@ -56,6 +56,15 @@ export default {
     this.editedTodo = this.todo
   },
 
+  watch: {
+    'editedTodo.completed'(newValue, oldValue) {
+      if (oldValue !== undefined) {
+        console.log('WATCH:::::!!!!!!')
+        this.$emit('updateTodo', this.editedTodo)
+      }
+    },
+  },
+
   methods: {
     onSelect(e) {
       this.$emit(e)
@@ -69,6 +78,12 @@ export default {
       this.editing = false
       this.originalDescription = ''
       this.$emit('updateTodo', this.editedTodo)
+    },
+    onToggle() {
+      this.$emit('updateTodo', this.editedTodo)
+    },
+    removeTodo() {
+      this.$emit('removeTodo', this.editedTodo)
     },
   },
 }
