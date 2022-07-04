@@ -1,5 +1,14 @@
-# goalsystems
+# Goal Systems technical test
 
+## Mock server setup
+Install json-server
+```
+npm install -g json-server
+```
+Run mock server before starting the project
+```
+start_mock_server
+```
 ## Project setup
 ```
 npm install
@@ -25,5 +34,3 @@ npm run test:unit
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
