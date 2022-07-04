@@ -4,7 +4,7 @@
 
 <script>
 import TodoListComponent from '@/components/TodoListComponent.vue'
-import { mapGetters /*, mapActions*/ } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'CompletedView',
@@ -12,6 +12,12 @@ export default {
   components: { TodoListComponent },
   computed: {
     ...mapGetters(['completed']),
+  },
+  methods: {
+    ...mapActions(['setTodos']),
+  },
+  created() {
+    this.setTodos()
   },
 }
 </script>

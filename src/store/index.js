@@ -81,6 +81,18 @@ export default new Vuex.Store({
         throw new Error(error)
       }
     },
+    async clearCompletedTodos({ commit, getters }) {
+      try {
+        for (const todo of getters.completed) {
+          console.log('STORE::clearCompletedTodos', todo)
+          const { id } = todo
+          await axios.delete(`/todos/${id}`, todo)
+          commit('REMOVE_TODO', todo)
+        }
+      } catch (error) {
+        throw new Error(error)
+      }
+    },
   },
   modules: {},
 })

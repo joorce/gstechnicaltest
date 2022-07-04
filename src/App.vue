@@ -152,19 +152,6 @@ body {
   font-weight: 300;
 }
 
-.clear-completed,
-html .clear-completed:active {
-  float: right;
-  position: relative;
-  line-height: 20px;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.clear-completed:hover {
-  text-decoration: underline;
-}
-
 .info {
   margin: 65px auto 0;
   color: #bfbfbf;

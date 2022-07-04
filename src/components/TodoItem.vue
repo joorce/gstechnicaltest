@@ -57,7 +57,7 @@ export default {
   },
 
   watch: {
-    'editedTodo.completed'(newValue, oldValue) {
+    'editedTodo.completed'(_, oldValue) {
       if (oldValue !== undefined) {
         console.log('WATCH:::::!!!!!!')
         this.$emit('updateTodo', this.editedTodo)

@@ -19,7 +19,9 @@
         <strong></strong>
       </span>
       <todo-filters />
-      <button class="clear-completed">Clear completed</button>
+      <button class="clear-completed" @click="onClearCompleted">
+        Clear completed
+      </button>
     </footer>
   </div>
 </template>
@@ -28,6 +30,8 @@
 import TodoAdder from './TodoAdder.vue'
 import TodoFilters from './TodoFilters.vue'
 import TodoList from './TodoList.vue'
+import { mapActions } from 'vuex'
+
 export default {
   components: { TodoFilters, TodoAdder, TodoList },
   name: 'TodoListComponent',
@@ -38,17 +42,43 @@ export default {
     },
   },
   methods: {
+    ...mapActions([
+      'addTodo',
+      'updateTodo',
+      'removeTodo',
+      'clearCompletedTodos',
+    ]),
     onAddTodo(todo) {
-      this.$emit('addTodo', todo)
+      console.log('onAddTodo', todo)
+      this.addTodo(todo)
     },
     onUpdateTodo(todo) {
-      this.$emit('updateTodo', todo)
+      console.log('onUpdateTodo', todo)
+      this.updateTodo(todo)
     },
     onRemoveTodo(todo) {
-      this.$emit('removeTodo', todo)
+      console.log('onRemoveTodo', todo)
+      this.removeTodo(todo)
+    },
+    onClearCompleted() {
+      console.log('onClearCompleted')
+      this.clearCompletedTodos()
     },
   },
 }
 </script>
 
-<style></style>
+<style scoped>
+.clear-completed,
+html .clear-completed:active {
+  float: right;
+  position: relative;
+  line-height: 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.clear-completed:hover {
+  text-decoration: underline;
+}
+</style>
