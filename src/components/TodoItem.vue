@@ -50,6 +50,7 @@ export default {
       editing: false,
       originalDescription: '',
       editedTodo: {},
+      deleted: false,
     }
   },
   created() {
@@ -74,18 +75,27 @@ export default {
       this.originalDescription = this.editedTodo.description
     },
     onEditCanceled() {
+      this.editing = false
       this.editedTodo.description = this.originalDescription
     },
     onEditEnd() {
+      if (this.deleted) {
+        return
+      }
       this.editing = false
       this.originalDescription = ''
-      this.$emit('updateTodo', this.editedTodo)
+      if (!this.deleted && this.editedTodo.description !== '') {
+        this.$emit('updateTodo', this.editedTodo)
+      } else {
+        this.removeTodo()
+      }
     },
     onToggle() {
       this.$emit('updateTodo', this.editedTodo)
     },
     removeTodo() {
       this.$emit('removeTodo', this.editedTodo)
+      this.deleted = true
     },
   },
 }
