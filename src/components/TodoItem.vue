@@ -73,7 +73,9 @@ export default {
       this.editing = true
       this.originalDescription = this.editedTodo.description
     },
-    onEditCanceled() {},
+    onEditCanceled() {
+      this.editedTodo.description = this.originalDescription
+    },
     onEditEnd() {
       this.editing = false
       this.originalDescription = ''
