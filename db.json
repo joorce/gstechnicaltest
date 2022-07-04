@@ -1,3 +1,19 @@
 {
-  "todos": []
+  "todos": [
+    {
+      "description": "foo",
+      "completed": false,
+      "id": 1
+    },
+    {
+      "description": "bar",
+      "completed": false,
+      "id": 2
+    },
+    {
+      "description": "zoo",
+      "completed": false,
+      "id": 3
+    }
+  ]
 }

@@ -16,7 +16,8 @@
     </div>
     <footer class="footer" v-if="todos.length > 0">
       <span class="todo-count">
-        <strong></strong>
+        <strong v-text="active.length"></strong>
+        {{ active.length === 1 ? 'item' : 'items' }} left
       </span>
       <todo-filters />
       <button class="clear-completed" @click="onClearCompleted">
@@ -30,7 +31,7 @@
 import TodoAdder from './TodoAdder.vue'
 import TodoFilters from './TodoFilters.vue'
 import TodoList from './TodoList.vue'
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   components: { TodoFilters, TodoAdder, TodoList },
@@ -40,6 +41,9 @@ export default {
       type: Array,
       default: () => [],
     },
+  },
+  computed: {
+    ...mapGetters(['active']),
   },
   methods: {
     ...mapActions([
